@@ -1,0 +1,33 @@
+{%extends "apptodo/base.html" %}
+
+{%load bootstrap3%}
+
+{%block form%}
+    <form method="POST" action="">
+        {%csrf_token%}
+        {%bootstrap_form form%}
+        {%buttons%}
+            <input class="btn btn-primary" type="submit" value="AddTodo" >
+        {%endbuttons%}
+    </form>
+{%endblock%}
+
+{%block itemlist%}
+    <table id="id_list_table" class="tabletable-hover">
+        {%for item in list%}
+        <tr>
+            <td>
+            {%if item.done%}
+                <input type="checkbox" checked>
+            {%else%}
+                <input type="checkbox" >
+            {%endif%}
+            {{item.title}}
+            <td/>
+            <td>
+                <a class="btn btn-danger pull-right" href='./delete/{{item.id}}/'> Delete</a>
+            </td>
+        <tr>
+        {%endfor%}
+    </table>
+{%endblock%}

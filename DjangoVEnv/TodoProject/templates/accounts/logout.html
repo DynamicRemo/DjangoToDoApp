@@ -1,0 +1,15 @@
+{%extends "base.html" %}
+
+{%block content%}
+    <div class="jumbotron">
+        <h2>Logged out</h2>
+        <p>Thanks for spending some quality time with the Web site today.</p>
+        <p>
+{#            This was redirecting to the profile page on logging In with a user#}
+{#            <a href="{%url 'login' %}" class="btn btn-primary btn-lg">Log in again</a>#}
+
+{#            This will redirect to the home page, but home page requires login again with next link to the home#}
+            <a href="{%url 'apptodo:home' %}" class="btn btn-primary btn-lg">Log in again</a>
+        </p>
+    </div>
+{%endblock%}

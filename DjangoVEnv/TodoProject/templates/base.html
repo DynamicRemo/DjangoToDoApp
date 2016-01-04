@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {%load staticfiles%}
+        <link href="{%static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+        <link href="{%static "base.css" %}" rel="stylesheet">
+        <title>To-Do App</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>To-Do App</h1>
+            <nav class="navbarnavbar-default">
+                <div class="container-fluid">
+                <!--[... Navbarstuff...] -->
+                    <div class="collapsenavbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="{%url 'apptodo:home' %}">Todos</a>
+                            </li>
+                            <li>
+                                <a href="{%url 'admin:index' %}">Admin</a>
+                            </li>
+                            {%if user.is_authenticated%}
+                                <li>
+                                    <a href="{%url 'logout'%}">Log out</a>
+                                </li>
+                            {%else%}
+                                <li>
+                                    <a href="{%url 'login'%}">Log in</a>
+                                </li>
+                            {%endif%}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            {%block content%}
+            {%endblock%}
+        </div>
+    </body>
+</html>
